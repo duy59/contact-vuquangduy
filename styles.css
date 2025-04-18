@@ -1,0 +1,332 @@
+/* Custom styles for Vu Quang Duy's portfolio */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Hover effects */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Image frame effects */
+.image-frame {
+  position: relative;
+  padding: 10px;
+}
+
+.image-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, #6366f1, #8b5cf6, #d946ef);
+  border-image-slice: 1;
+  z-index: -1;
+  transform: translate(8px, 8px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Text effects */
+.shine-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.shine-text:hover::after {
+  left: 100%;
+}
+
+/* Card hover effects */
+.skill-card {
+  transition: all 0.3s ease;
+  background: rgba(30, 41, 59, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.skill-card:hover::before {
+  transform: rotate(45deg) translateY(-100%);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading animation */
+.loading-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered animation delay for multiple elements */
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s forwards;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Social media icon special effects */
+.social-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.social-icon:hover::before {
+  opacity: 1;
+}
+
+/* Custom animation for background elements */
+@keyframes float-slow {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-15px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+.floating-bg-element {
+  animation: float-slow 15s ease-in-out infinite;
+}
+
+/* Custom button styles */
+.custom-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.custom-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.custom-button:hover::before {
+  left: 100%;
+}
+
+/* Light mode theme */
+.light-mode {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.light-mode .card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .fixed.inset-0.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #f1f5f9, #e2e8f0, #f1f5f9);
+}
+
+.light-mode .text-slate-400 {
+  color: #64748b;
+}
+
+.light-mode .text-slate-300 {
+  color: #334155;
+}
+
+.light-mode .bg-slate-800\/50 {
+  background-color: rgba(241, 245, 249, 0.7);
+}
+
+.light-mode .border-slate-700 {
+  border-color: #e2e8f0;
+}
+
+.light-mode .bg-slate-700 {
+  background-color: #e2e8f0;
+}
+
+.light-mode .w-10.h-10.rounded-full.bg-slate-700\/50 {
+  background-color: rgba(226, 232, 240, 0.5);
+}
+
+.light-mode .w-10.h-10.rounded-full.bg-indigo-500\/20 {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.light-mode .social-icon {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.light-mode .text-white {
+  color: #1e293b;
+}
+
+.light-mode ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.light-mode ::-webkit-scrollbar-thumb {
+  background: #64748b;
+}
+
+.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+.light-mode #theme-toggle i {
+  color: #f59e0b;
+}
+
+.light-mode #theme-toggle {
+  background-color: #f1f5f9;
+}
+
+/* Project card active state */
+.project-card.active {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.form-input.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+.light-mode .form-input {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+}
+
+.success-message {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s;
+}
+
+/* Skill progress animation */
+.skill-progress {
+  transition: width 1.5s ease-in-out;
+}
+
+/* Particle animations for light mode */
+.light-mode .particle {
+  background-color: rgba(99, 102, 241, 0.3);
+}
+
+.light-mode .floating-bg-element {
+  opacity: 0.1;
+} 

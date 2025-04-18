@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vũ Quang Duy - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .profile-image {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+            top: 12px;
+            left: 12px;
+            z-index: -1;
+            border-radius: 9999px;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .github-icon:hover {
+            color: #6e5494;
+        }
+        
+        .facebook-icon:hover {
+            color: #1877f2;
+        }
+        
+        .phone-icon:hover {
+            color: #10b981;
+        }
+        
+        .web-icon:hover {
+            color: #f59e0b;
+        }
+        
+        .cursor-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-particle 15s linear infinite;
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-50px) translateX(50px);
+            }
+            50% {
+                transform: translateY(-100px) translateX(0);
+            }
+            75% {
+                transform: translateY(-50px) translateX(-50px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="loading-fade-in">
+    <!-- Background Gradient -->
+    <div class="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-10"></div>
+    
+    <!-- Particles Container -->
+    <div class="fixed inset-0 -z-5 particles-container"></div>
+    
+    <!-- Particles Background -->
+    <div class="fixed inset-0 -z-5 opacity-20">
+        <div class="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl floating-bg-element parallax" data-speed="30"></div>
+        <div class="absolute top-60 right-20 w-60 h-60 bg-purple-500 rounded-full blur-3xl floating-bg-element parallax" data-speed="20" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-pink-500 rounded-full blur-3xl floating-bg-element parallax" data-speed="10" style="animation-delay: 4s;"></div>
+    </div>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed top-5 right-5 z-50 w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-full flex items-center justify-center">
+        <i class="fas fa-moon text-yellow-300"></i>
+    </button>
+    
+    <div class="min-h-screen flex flex-col justify-center items-center px-4 py-12 relative">
+        <!-- Header -->
+        <header class="text-center mb-12 animate-float">
+            <h1 class="text-4xl md:text-6xl font-bold mb-2 gradient-text shine-text">Vũ Quang Duy</h1>
+            <p class="text-lg md:text-xl text-slate-400 header-subtitle">IT Student & Web Developer</p>
+        </header>
+        
+        <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 stagger-animation">
+            <!-- Left Column - Profile Image and Contact -->
+            <div class="col-span-1">
+                <div class="card rounded-3xl p-6 flex flex-col items-center">
+                    <div class="profile-image mb-6 image-frame">
+                        <img src="images.jpg" alt="Vũ Quang Duy" class="w-48 h-48 rounded-full object-cover border-4 border-white/10 hover-scale">
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold mb-4">Contact Info</h2>
+                    
+                    <div class="w-full space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center">
+                                <i class="fas fa-calendar text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400">Birthday</p>
+                                <p>September 05, 2003</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center">
+                                <i class="fas fa-venus-mars text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400">Gender</p>
+                                <p>Male</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400">Location</p>
+                                <p>Hanoi, Vietnam</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center">
+                                <i class="fas fa-phone text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400">Phone</p>
+                                <p>0919534982</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-center gap-6">
+                        <a href="https://github.com/duy59" target="_blank" class="social-icon github-icon w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white hover:bg-slate-700">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/duyquangvulc" target="_blank" class="social-icon facebook-icon w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white hover:bg-slate-700">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="tel:0919534982" class="social-icon phone-icon w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white hover:bg-slate-700">
+                            <i class="fas fa-phone text-xl"></i>
+                        </a>
+                        <a href="https://vuquangduy.online/" target="_blank" class="social-icon web-icon w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white hover:bg-slate-700">
+                            <i class="fas fa-globe text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Middle and Right Columns -->
+            <div class="col-span-1 lg:col-span-2 space-y-8">
+                <!-- About Me -->
+                <div class="card rounded-3xl p-8 skill-card">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-indigo-400"></i>
+                        </span>
+                        About Me
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Hello! I'm Vũ Quang Duy, an IT student passionate about web development and technology. 
+                        I'm currently studying at Posts and Telecommunications Institute of Technology, where I'm 
+                        developing my skills in various aspects of computer science and information technology.
+                    </p>
+                </div>
+                
+                <!-- Education -->
+                <div class="card rounded-3xl p-8 skill-card">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-graduation-cap text-indigo-400"></i>
+                        </span>
+                        Education
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-xl font-semibold">Posts and Telecommunications Institute of Technology</h3>
+                                <span class="text-sm bg-indigo-500/20 text-indigo-300 py-1 px-3 rounded-full">2021-2026</span>
+                            </div>
+                            <p class="text-slate-400">Information Technology</p>
+                            <p class="mt-2 text-slate-300">
+                                Pursuing a degree in Information Technology, focusing on developing practical skills 
+                                in software development, web technologies, and computer science fundamentals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projects -->
+                <div class="card rounded-3xl p-8 skill-card">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-indigo-400"></i>
+                        </span>
+                        Projects
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <a href="https://vuquangduy.online/" target="_blank" class="project-card block p-5 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 transition-all border border-slate-700 hover-scale">
+                            <h3 class="text-lg font-semibold mb-2">E-commerce Website</h3>
+                            <p class="text-slate-400 text-sm">A fully functional e-commerce platform with modern design and user experience</p>
+                            <div class="mt-3 flex items-center text-indigo-400 text-sm">
+                                <i class="fas fa-link mr-2"></i>
+                                vuquangduy.online
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/duy59" target="_blank" class="project-card block p-5 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 transition-all border border-slate-700 hover-scale">
+                            <h3 class="text-lg font-semibold mb-2">GitHub Repositories</h3>
+                            <p class="text-slate-400 text-sm">Check out my GitHub profile for more projects and contributions</p>
+                            <div class="mt-3 flex items-center text-indigo-400 text-sm">
+                                <i class="fab fa-github mr-2"></i>
+                                github.com/duy59
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="card rounded-3xl p-8 skill-card skills-section">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-laptop-code text-indigo-400"></i>
+                        </span>
+                        Skills
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover-scale">
+                            <div class="flex items-center mb-2">
+                                <i class="fab fa-html5 text-orange-500 mr-2 text-xl"></i>
+                                <h3 class="font-medium">HTML/CSS</h3>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-progress bg-gradient-to-r from-orange-500 to-pink-500 h-2 rounded-full" style="width: 0%" data-percentage="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover-scale">
+                            <div class="flex items-center mb-2">
+                                <i class="fab fa-js text-yellow-400 mr-2 text-xl"></i>
+                                <h3 class="font-medium">JavaScript</h3>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-progress bg-gradient-to-r from-yellow-400 to-yellow-600 h-2 rounded-full" style="width: 0%" data-percentage="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover-scale">
+                            <div class="flex items-center mb-2">
+                                <i class="fab fa-react text-blue-400 mr-2 text-xl"></i>
+                                <h3 class="font-medium">React</h3>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-progress bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full" style="width: 0%" data-percentage="75"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover-scale">
+                            <div class="flex items-center mb-2">
+                                <i class="fab fa-node-js text-green-500 mr-2 text-xl"></i>
+                                <h3 class="font-medium">Node.js</h3>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-progress bg-gradient-to-r from-green-500 to-green-700 h-2 rounded-full" style="width: 0%" data-percentage="70"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover-scale">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-database text-purple-500 mr-2 text-xl"></i>
+                                <h3 class="font-medium">SQL</h3>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-progress bg-gradient-to-r from-purple-500 to-purple-700 h-2 rounded-full" style="width: 0%" data-percentage="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover-scale">
+                            <div class="flex items-center mb-2">
+                                <i class="fab fa-java text-red-500 mr-2 text-xl"></i>
+                                <h3 class="font-medium">Java</h3>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-progress bg-gradient-to-r from-red-500 to-red-700 h-2 rounded-full" style="width: 0%" data-percentage="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact -->
+        <div class="w-full max-w-6xl mx-auto mt-8">
+            <div class="card rounded-3xl p-8 gradient-bg">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-2">Let's Connect!</h2>
+                    <p class="text-slate-200 mb-6">Have a project or opportunity? Feel free to reach out.</p>
+                    <a href="mailto:vuquangduy0509@gmail.com" class="custom-button inline-block px-6 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition-all">
+                        <i class="fas fa-envelope mr-2"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-slate-500">
+            <p>© 2023 Vũ Quang Duy. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
